@@ -1,0 +1,3 @@
+[submodule "edmunds-sdk"]
+	path = edmunds-sdk
+	url = git@github.com:chiqvito/EdmundsAndroidSDK.git
