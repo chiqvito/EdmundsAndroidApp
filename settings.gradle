@@ -1,1 +1,2 @@
 include ':edmunds'
+include ':edmunds-sdk:edmunds-sdk'

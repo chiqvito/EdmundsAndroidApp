@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EdmundsAndroidApp.iml" filepath="$PROJECT_DIR$/EdmundsAndroidApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/edmunds/edmunds.iml" filepath="$PROJECT_DIR$/edmunds/edmunds.iml" />
+      <module fileurl="file://$PROJECT_DIR$/edmunds-sdk/edmunds-sdk.iml" filepath="$PROJECT_DIR$/edmunds-sdk/edmunds-sdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/edmunds-sdk/edmunds-sdk/edmunds-sdk-edmunds-sdk.iml" filepath="$PROJECT_DIR$/edmunds-sdk/edmunds-sdk/edmunds-sdk-edmunds-sdk.iml" />
     </modules>
   </component>
 </project>

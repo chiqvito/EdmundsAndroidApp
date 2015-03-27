@@ -9,6 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/edmunds" />
+            <option value="$PROJECT_DIR$/edmunds-sdk" />
+            <option value="$PROJECT_DIR$/edmunds-sdk/edmunds-sdk" />
           </set>
         </option>
       </GradleProjectSettings>
