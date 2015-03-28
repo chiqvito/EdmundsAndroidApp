@@ -23,4 +23,6 @@ dependencies {
     compile project(':edmunds-sdk:edmunds-sdk')
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.0.0'
+    compile 'com.android.support:recyclerview-v7:22.0.0'
+    compile 'de.greenrobot:eventbus:2.4.0'
 }
