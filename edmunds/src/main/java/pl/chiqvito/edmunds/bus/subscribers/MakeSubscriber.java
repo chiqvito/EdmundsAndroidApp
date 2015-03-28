@@ -7,7 +7,7 @@ import de.greenrobot.event.EventBus;
 import pl.chiqvito.edmunds.Constants;
 import pl.chiqvito.edmunds.bus.events.GetMakesEvent;
 import pl.chiqvito.edmunds.bus.events.MakesEvent;
-import pl.chiqvito.edmunds.sdk.client.BaseClient;
+import pl.chiqvito.edmunds.sdk.client.BasicOnResultCallback;
 import pl.chiqvito.edmunds.sdk.client.vehicle.MakesClient;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.MakesDTO;
 import retrofit.RetrofitError;
@@ -26,7 +26,7 @@ public class MakeSubscriber {
     public void onEventAsync(GetMakesEvent event) {
         Log.v(TAG, "event:" + event);
         MakesClient client = new MakesClient(context, Constants.API_KEY);
-        client.setOnResultCallback(new BaseClient.OnResultCallback<MakesDTO>() {
+        client.setOnResultCallback(new BasicOnResultCallback<MakesDTO>() {
             @Override
             public void onResponseOk(MakesDTO makesDTO, Response r) {
                 EventBus.getDefault().post(new MakesEvent(makesDTO));
@@ -34,7 +34,7 @@ public class MakeSubscriber {
 
             @Override
             public void onFail(RetrofitError error) {
-                error.printStackTrace();
+                super.onFail(error);
                 EventBus.getDefault().post(new MakesEvent(null));
             }
         });
