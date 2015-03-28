@@ -13,6 +13,7 @@ import pl.chiqvito.edmunds.sdk.dto.vehicle.response.MakeDTO;
 import pl.chiqvito.edmunds.ui.adapter.BaseRecyclerViewAdapter;
 import pl.chiqvito.edmunds.ui.adapter.MakeAdapter;
 import pl.chiqvito.edmunds.ui.model.BaseModel;
+import pl.chiqvito.edmunds.ui.model.CountModel;
 import pl.chiqvito.edmunds.ui.model.MakeModel;
 
 public class MakesFragment extends BaseListFragment {
@@ -41,10 +42,12 @@ public class MakesFragment extends BaseListFragment {
     public void onEventMainThread(MakesEvent event) {
         Log.v(TAG, "event:" + event);
         List<BaseModel> models = new ArrayList<BaseModel>();
-        if (event.getMakes() != null)
+        if (event.getMakes() != null) {
+            models.add(new CountModel(event.getMakes().getMakesCount()));
             for (MakeDTO make : event.getMakes().getMakes()) {
                 models.add(new MakeModel(make));
             }
+        }
         load(models);
     }
 
