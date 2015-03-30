@@ -25,7 +25,7 @@ public class MakeSubscriber {
 
     public void onEventAsync(GetMakesEvent event) {
         Log.v(TAG, "event:" + event);
-        MakesClient client = new MakesClient(context, Constants.API_KEY);
+        MakesClient client = new MakesClient(context, Constants.API_KEY, event.getState(), event.getYear());
         client.setOnResultCallback(new BasicOnResultCallback<MakesDTO>() {
             @Override
             public void onResponseOk(MakesDTO makesDTO, Response r) {

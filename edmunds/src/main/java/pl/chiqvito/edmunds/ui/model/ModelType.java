@@ -2,5 +2,6 @@ package pl.chiqvito.edmunds.ui.model;
 
 public interface ModelType {
     int COUNT = 1;
-    int MAKE = 2;
+    int STATE_YEAR_FILTER = 2;
+    int MAKE = 3;
 }
