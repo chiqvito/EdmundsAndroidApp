@@ -7,8 +7,11 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import de.greenrobot.event.EventBus;
 import pl.chiqvito.edmunds.R;
+import pl.chiqvito.edmunds.bus.events.SwitchFragmentEvent;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.MakeDTO;
+import pl.chiqvito.edmunds.ui.fragment.FragmentBuilder;
 
 public class MakeModel extends BaseModel {
 
@@ -47,12 +50,12 @@ public class MakeModel extends BaseModel {
             text = (TextView) itemView.findViewById(R.id.txt);
         }
 
-        public void bindView(MakeDTO make) {
+        public void bindView(final MakeDTO make) {
             text.setText(make.getName());
             fl.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //TODO
+                    EventBus.getDefault().post(new SwitchFragmentEvent(FragmentBuilder.FragmentName.MODELS, make));
                 }
             });
         }
