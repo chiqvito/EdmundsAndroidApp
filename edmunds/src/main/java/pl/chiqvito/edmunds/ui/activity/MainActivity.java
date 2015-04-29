@@ -2,6 +2,7 @@ package pl.chiqvito.edmunds.ui.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 
 import pl.chiqvito.edmunds.R;
@@ -20,8 +21,9 @@ public class MainActivity extends ActionBarActivity implements NavigationCallbac
 
     @Override
     public void onNavigationItemSelected(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.container, fragment)
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, fragment)
                 .commit();
     }
 }
