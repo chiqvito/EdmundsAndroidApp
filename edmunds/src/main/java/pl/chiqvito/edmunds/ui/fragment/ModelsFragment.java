@@ -11,11 +11,13 @@ import pl.chiqvito.edmunds.bus.events.GetModelsEvent;
 import pl.chiqvito.edmunds.bus.events.ModelsEvent;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.MakeDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.ModelDTO;
+import pl.chiqvito.edmunds.sdk.dto.vehicle.response.YearDTO;
 import pl.chiqvito.edmunds.ui.adapter.BaseRecyclerViewAdapter;
 import pl.chiqvito.edmunds.ui.adapter.ModelAdapter;
 import pl.chiqvito.edmunds.ui.model.BaseModel;
 import pl.chiqvito.edmunds.ui.model.CountModel;
 import pl.chiqvito.edmunds.ui.model.ModelModel;
+import pl.chiqvito.edmunds.ui.model.YearModel;
 
 public class ModelsFragment extends BaseListFragment {
 
@@ -52,6 +54,9 @@ public class ModelsFragment extends BaseListFragment {
             models.add(new CountModel(event.getModels().getModelsCount()));
             for (ModelDTO model : event.getModels().getModels()) {
                 models.add(new ModelModel(model));
+                for (YearDTO year : model.getYears()) {
+                    models.add(new YearModel(year));
+                }
             }
         }
         load(models);

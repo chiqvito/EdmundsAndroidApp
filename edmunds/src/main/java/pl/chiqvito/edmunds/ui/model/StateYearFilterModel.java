@@ -72,7 +72,7 @@ public class StateYearFilterModel extends BaseModel {
 
             List<OptionItem<Integer>> years = new ArrayList<OptionItem<Integer>>();
             years.add(new OptionItem<Integer>(null));
-            for (int i = Calendar.getInstance().get(Calendar.YEAR); i >= 1990; i--)
+            for (int i = Calendar.getInstance().get(Calendar.YEAR) + 1; i >= 1990; i--)
                 years.add(new OptionItem<Integer>(i));
             yearsAdapter = new SpinnerOptionAdapter<Integer>(itemView.getContext(), years) {
                 @Override
