@@ -6,21 +6,24 @@ import de.greenrobot.event.EventBus;
 import pl.chiqvito.edmunds.BuildConfig;
 import pl.chiqvito.edmunds.bus.subscribers.MakeSubscriber;
 import pl.chiqvito.edmunds.bus.subscribers.ModelSubscriber;
+import pl.chiqvito.edmunds.cache.blob.BlobCache;
 
 public class EventBusConfigurator {
 
     private Context context;
+    private BlobCache blobCache;
 
     private MakeSubscriber makeSubscriber;
     private ModelSubscriber modelSubscriber;
 
-    public EventBusConfigurator(Context context) {
+    public EventBusConfigurator(Context context, BlobCache blobCache) {
         this.context = context;
+        this.blobCache = blobCache;
     }
 
     private void build() {
-        makeSubscriber = new MakeSubscriber(context);
-        modelSubscriber = new ModelSubscriber(context);
+        makeSubscriber = new MakeSubscriber(context, blobCache);
+        modelSubscriber = new ModelSubscriber(context, blobCache);
     }
 
     public void register() {

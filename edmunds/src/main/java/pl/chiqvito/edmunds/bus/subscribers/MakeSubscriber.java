@@ -7,6 +7,7 @@ import de.greenrobot.event.EventBus;
 import pl.chiqvito.edmunds.Constants;
 import pl.chiqvito.edmunds.bus.events.GetMakesEvent;
 import pl.chiqvito.edmunds.bus.events.MakesEvent;
+import pl.chiqvito.edmunds.cache.blob.BlobCache;
 import pl.chiqvito.edmunds.cache.blob.CacheData;
 import pl.chiqvito.edmunds.sdk.client.BasicOnResultCallback;
 import pl.chiqvito.edmunds.sdk.client.vehicle.MakesClient;
@@ -18,8 +19,8 @@ public class MakeSubscriber extends BaseSubscriber {
 
     private final Context context;
 
-    public MakeSubscriber(Context context) {
-        super(MakeSubscriber.class.getName());
+    public MakeSubscriber(Context context, BlobCache blobCache) {
+        super(MakeSubscriber.class.getName(), blobCache);
         this.context = context;
     }
 

@@ -26,4 +26,5 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:22.0.0'
     compile 'de.greenrobot:eventbus:2.4.0'
     compile 'com.jakewharton:disklrucache:2.0.2'
+    compile 'commons-io:commons-io:2.4'
 }

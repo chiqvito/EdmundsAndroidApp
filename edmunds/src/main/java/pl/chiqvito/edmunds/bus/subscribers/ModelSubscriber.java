@@ -7,6 +7,7 @@ import de.greenrobot.event.EventBus;
 import pl.chiqvito.edmunds.Constants;
 import pl.chiqvito.edmunds.bus.events.GetModelsEvent;
 import pl.chiqvito.edmunds.bus.events.ModelsEvent;
+import pl.chiqvito.edmunds.cache.blob.BlobCache;
 import pl.chiqvito.edmunds.cache.blob.CacheData;
 import pl.chiqvito.edmunds.sdk.client.BasicOnResultCallback;
 import pl.chiqvito.edmunds.sdk.client.vehicle.ModelsClient;
@@ -18,8 +19,8 @@ public class ModelSubscriber extends BaseSubscriber {
 
     private final Context context;
 
-    public ModelSubscriber(Context context) {
-        super(ModelSubscriber.class.getName());
+    public ModelSubscriber(Context context, BlobCache blobCache) {
+        super(ModelSubscriber.class.getName(), blobCache);
         this.context = context;
     }
 
