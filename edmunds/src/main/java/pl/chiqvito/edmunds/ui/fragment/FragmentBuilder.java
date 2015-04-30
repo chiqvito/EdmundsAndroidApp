@@ -3,11 +3,13 @@ package pl.chiqvito.edmunds.ui.fragment;
 import android.os.Parcelable;
 
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.MakeDTO;
+import pl.chiqvito.edmunds.sdk.dto.vehicle.response.YearDTO;
 
 public class FragmentBuilder {
     public enum FragmentName {
         MAKES,
         MODELS,
+        PHOTOS,
     }
 
     private FragmentBuilder.FragmentName fn;
@@ -29,6 +31,9 @@ public class FragmentBuilder {
             }
             case MODELS: {
                 return ModelsFragment.newInstance(fn, (MakeDTO) parcelable);
+            }
+            case PHOTOS: {
+                return PhotosFragment.newInstance(fn, (YearDTO) parcelable);
             }
         }
         throw new IllegalArgumentException("Unknown fragment for " + fn);

@@ -55,6 +55,8 @@ public class ModelsFragment extends BaseListFragment {
             for (ModelDTO model : event.getModels().getModels()) {
                 models.add(new ModelModel(model));
                 for (YearDTO year : model.getYears()) {
+                    year.setMake(make());
+                    year.setModel(model);
                     models.add(new YearModel(year));
                 }
             }
