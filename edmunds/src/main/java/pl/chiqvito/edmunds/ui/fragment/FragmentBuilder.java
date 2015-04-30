@@ -1,7 +1,6 @@
 package pl.chiqvito.edmunds.ui.fragment;
 
 import android.os.Parcelable;
-import android.support.v4.app.Fragment;
 
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.MakeDTO;
 
@@ -23,7 +22,7 @@ public class FragmentBuilder {
         return this;
     }
 
-    public Fragment build() {
+    public BaseFragment build() {
         switch (fn) {
             case MAKES: {
                 return MakesFragment.newInstance(fn);

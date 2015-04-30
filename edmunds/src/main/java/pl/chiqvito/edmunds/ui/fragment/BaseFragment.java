@@ -19,6 +19,10 @@ public class BaseFragment extends Fragment {
         return FragmentBuilder.FragmentName.valueOf(getArguments().getString(Constants.FRAGMENT_NAME));
     }
 
+    public String name() {
+        return fragmentName().name();
+    }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -49,7 +53,7 @@ public class BaseFragment extends Fragment {
 
     public void onEventMainThread(SwitchFragmentEvent event) {
         Log.v(TAG, "event:" + event);
-        Fragment fragment = new FragmentBuilder(event.getFragmentName()).parcelable(event.getParcelable()).build();
+        BaseFragment fragment = new FragmentBuilder(event.getFragmentName()).parcelable(event.getParcelable()).build();
         mCallbacks.onNavigationItemSelected(fragment);
     }
 

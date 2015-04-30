@@ -1,11 +1,11 @@
 package pl.chiqvito.edmunds.ui.activity;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 
 import pl.chiqvito.edmunds.R;
+import pl.chiqvito.edmunds.ui.fragment.BaseFragment;
 import pl.chiqvito.edmunds.ui.fragment.FragmentBuilder;
 
 public class MainActivity extends ActionBarActivity implements NavigationCallbacks {
@@ -20,10 +20,11 @@ public class MainActivity extends ActionBarActivity implements NavigationCallbac
     }
 
     @Override
-    public void onNavigationItemSelected(Fragment fragment) {
+    public void onNavigationItemSelected(BaseFragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.container, fragment)
+                .addToBackStack(fragment.name())
                 .commit();
     }
 }

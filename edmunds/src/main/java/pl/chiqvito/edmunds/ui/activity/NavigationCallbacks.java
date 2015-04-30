@@ -1,7 +1,7 @@
 package pl.chiqvito.edmunds.ui.activity;
 
-import android.support.v4.app.Fragment;
+import pl.chiqvito.edmunds.ui.fragment.BaseFragment;
 
 public interface NavigationCallbacks {
-    void onNavigationItemSelected(Fragment fragment);
+    void onNavigationItemSelected(BaseFragment fragment);
 }
